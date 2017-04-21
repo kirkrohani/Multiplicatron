@@ -1,4 +1,5 @@
-const multiply = require('./multiply.js');
+const MathOperations = require('./MathOperations');
+const multiplyNumbers = new MathOperations().multiply;
 
 class MultiplyTestSuite {
   
@@ -18,15 +19,15 @@ class MultiplyTestSuite {
   }
 
   testMultiplyingTwoNumbers() {
-    return this.assertEquals(multiply([3,4]), 12);
+    return this.assertEquals(multiplyNumbers([3,4]), 12);
   }
 
   testMultiplyingMoreThanTwoNumbers() {
-    return this.assertEquals(multiply([1,2,3,4]), 24);
+    return this.assertEquals(multiplyNumbers([1,2,3,4]), 24);
   }
 
   testMultiplyingMixedNumbers() {
-    return this.assertEquals(multiply([1,-2,3,4]), -24);
+    return this.assertEquals(multiplyNumbers([1,-2,3,4]), -24);
   }
 
 }
