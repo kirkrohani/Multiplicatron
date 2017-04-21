@@ -7,7 +7,7 @@ class MultiplyTestSuite {
   }
 
   runAllTests() {
-    let testNames = Object.getOwnPropertyNames(Object.getPrototypeOf(this))
+    Object.getOwnPropertyNames(Object.getPrototypeOf(this))
       .filter( propertyName => propertyName.indexOf('test') !== -1 )
       .forEach( func => this.runTest(func) );
     
@@ -26,7 +26,7 @@ class MultiplyTestSuite {
   }
 
   testMultiplyingMixedNumbers() {
-    return this.assertEquals(multiply([1,-2,3,4]), -12);
+    return this.assertEquals(multiply([1,-2,3,4]), -24);
   }
 
 }
