@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const MathOperations = require("./MathOperations");
   const multiplyNumbers = new MathOperations().multiply;
  
-
-
   class MultiplyAppManager {
 
     createInputField(inputFieldsCount) {
@@ -53,7 +51,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       parentNode.insertBefore(this.createInputField(currentNumberOfInputs), referenceNode);
     }
-    
+
   }
   
   const appManager = new MultiplyAppManager();

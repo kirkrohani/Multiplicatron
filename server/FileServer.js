@@ -1,33 +1,39 @@
 const http = require('http');
 const fs = require('fs');
-let server = undefined;
 let PORT = process.env.PORT || 4000;
 
 class FileServer {
   
   loadServer() {
-    server = http.createServer()
+    http.createServer()
       .listen(PORT, console.log(`Server listening on port ${PORT}`))
       .on("request", this.processRequest );
   }
 
   processRequest(request, response) {
-    //grab the current url requested
-    const requestedURL = request.url;
-
-    const fileRequested = requestedURL.indexOf('html') !== -1 ? `./client${request.url}` : `./client/index.html`;
-    console.log(`Request URL is ${request.url} and appended file is ${fileRequested}`);
+    let fileRequested = `./client${request.url}`;
 
     //check if the file exists by attempting to read it
-    fs.readFile(fileRequested, (err, data) => {
+    fs.stat( fileRequested, (err, fileStats) => {
+      let responseToRequestor = undefined;
+      
       if (err) {
-        response.end(`The file you requested ${fileRequested} does not exist.....`);
-      } else {
-        response.end(data.toString('UTF-8'));
-      }
-    });
-  }
+        if(err.code === 'ENOENT')   
+          responseToRequestor = `The file you requested ${fileRequested} does NOT EXIST.`;
+        else    
+          responseToRequestor = 'Unable to load file requested due to ${err}';
 
+        response.end(responseToRequestor);
+      } else {
+        fileRequested = fileStats.isDirectory() ? `./client/index.html` : fileRequested;
+
+        fs.readFile(fileRequested, (err, fileData) => {
+          responseToRequestor = (err) ? `ERROR on server ${err}` : fileData.toString('UTF-8'); //try toLocaleString
+          response.end(responseToRequestor);
+        });
+      } // end if err else
+    }); //end fs.stat
+  } //end process request
 }
 
 const fileServer = new FileServer();
