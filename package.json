@@ -1,5 +1,6 @@
 {
-  "name": "Multiplicatron 4000",
+  "name": "Multiplicatron_4000",
+  "version": "0.0.1",
   "description": "App that allows multiplication of numbers",
   "main": "server/FileServer.js",
   "scripts": {
