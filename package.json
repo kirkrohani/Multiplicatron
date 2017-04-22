@@ -4,7 +4,7 @@
   "description": "App that allows multiplication of numbers",
   "main": "server/FileServer.js",
   "scripts": {
-    "postinstall": "browserify MultiplyApp.js -o bundle.js",
+    "postinstall": "browserify client/MultiplyApp.js -o client/bundle.js",
     "start": "node server/FileServer.js"
   },
   "license": "MIT",
