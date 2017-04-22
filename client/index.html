@@ -5,6 +5,10 @@
     <script src="./bundle.js"></script>
   </head>
   <body>
+    <div id="title">
+      <span class="flash">Multiplicatron 4000</span>
+      <span id="turn_off_link"> turn off</span>
+    </div>
     <form id="multiply_numbers">
       <div id="number1">
         <input type="text" size="3">
@@ -12,16 +16,17 @@
       <div id="number2">
         <input type="text" size="3">
       </div>
-      <div>
-         <button id="multiply_more_numbers">Need more Numbers!</button>
-      </div>
-       <hr>
       <div id="total">
+        <hr>
         <span>?</span>
       </div>
       <div>
-        <button id="calculate_button">Multiply like Rabbits!</button>
+        <button id="calculate_button" class="button">Multiply like Rabbits!</button>
+      </div>
+      <div>
+         <button id="multiply_more_numbers" class="button">Need more Numbers!</button>
       </div>
     </form>
+    
   </body>
 </html>

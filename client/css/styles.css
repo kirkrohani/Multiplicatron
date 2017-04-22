@@ -1,13 +1,14 @@
 
 #multiply_numbers {
-  margin: 0px auto;
-  width: 300px;
+  margin: 10px auto;
+  width: 200px;
   text-align: center;
-  border: solid 1px;
+  /*border: solid 1px;*/
 }
 
-#multiply_more_numbers, #calculate_button {
+.button {
   font-size: 1em;
+  margin: 10px 0;
 }
 
 #multiply_numbers input, #total span{
@@ -16,6 +17,28 @@
   font-size: 2em;
   margin: 10px 0;
 }
-hr {
-  
+
+#title {
+  font-size: 7em; /*16px = 1em*/
+  font-weight: bold;
+  width: 9.5em;  /*64px = 1em*/
+  margin: auto;
+}
+#turn_off_link {
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.flash {
+   animation-name: flash;
+    animation-duration: .1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: white;}
+    to {color: black;}
 }
