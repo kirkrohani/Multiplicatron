@@ -22,17 +22,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     createInputField(inputFieldsCount) {
       
-      let newInputField = document.createElement("input");
+      const newInputField = document.createElement("input");
       newInputField.type = "text";
       newInputField.size = "3";
 
-      let newDiv = document.createElement("div");  
+      const newDiv = document.createElement("div");  
       newDiv.id = `number${++inputFieldsCount}`;
 
-      let newLabel = document.createElement("label");
-      newLabel.textContent = "Enter a number ";
-
-      newDiv.appendChild(newLabel);
       newDiv.appendChild(newInputField);
       
       return newDiv;
@@ -49,10 +45,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       event.preventDefault();
       console.log('User clicked on submit');
 
-      const number1 = parseInt(document.querySelector("#number1 input").value);
-      const number2 = parseInt(document.querySelector("#number2 input").value);
-
-      document.querySelector("#total span").textContent = multiplyNumbers([number1, number2]);
+      let allInputs = Array.prototype.slice.call(document.querySelectorAll("input"))
+        .map( node => parseInt(node.value) )  
+        .filter( num => !isNaN(num) );
+    
+      const total = allInputs.length >= 2 ? multiplyNumbers(allInputs) : NaN;
+      document.querySelector("#total span").textContent = total;
       
     }
 
@@ -60,10 +58,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
       event.preventDefault();
       console.log('User clicked on more inputs');
 
-      let currentNumberOfInputs = document.querySelectorAll("input").length;
-      console.log(`currentNumberOfInputs ${currentNumberOfInputs}`);
-      let parentNode = document.querySelector("#multiply_numbers");
-      let referenceNode = document.querySelector("#total");
+      const currentNumberOfInputs = document.querySelectorAll("input").length;
+      const parentNode = document.querySelector("#multiply_numbers");
+      const referenceNode = document.querySelector("#total");
+
       parentNode.insertBefore(this.createInputField(currentNumberOfInputs), referenceNode);
       
     }

@@ -18,6 +18,10 @@ class MultiplyTestSuite {
     return num1 === num2;
   }
 
+  assertObjectEquals(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
+  }
+
   testMultiplyingTwoNumbers() {
     return this.assertEquals(multiplyNumbers([3,4]), 12);
   }
@@ -28,6 +32,10 @@ class MultiplyTestSuite {
 
   testMultiplyingMixedNumbers() {
     return this.assertEquals(multiplyNumbers([1,-2,3,4]), -24);
+  }
+
+  testMultiplyingNaN() {
+    return this.assertObjectEquals(multiplyNumbers([3,5,NaN]), NaN);
   }
 
 }

@@ -1,0 +1,21 @@
+
+#multiply_numbers {
+  margin: 0px auto;
+  width: 300px;
+  text-align: center;
+  border: solid 1px;
+}
+
+#multiply_more_numbers, #calculate_button {
+  font-size: 1em;
+}
+
+#multiply_numbers input, #total span{
+ /* border: solid 1px;*/
+  width: 2em;
+  font-size: 2em;
+  margin: 10px 0;
+}
+hr {
+  
+}
