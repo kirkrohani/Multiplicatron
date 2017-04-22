@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       document.getElementById("turn_off_link").addEventListener("click", this.turnOffBlinking.bind(this));
     }
 
+
     turnOffBlinking(event) {
       document.getElementsByClassName("flash")[0].style.animationPlayState = "paused";
     }
+
 
     onSubmit(event) {
       event.preventDefault();
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       document.querySelector("#total span").textContent = total; 
     }
 
+
     displayMoreInputs(event) {
       event.preventDefault();
 
@@ -50,6 +53,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       parentNode.insertBefore(this.createInputField(currentNumberOfInputs), referenceNode);
     }
+    
   }
   
   const appManager = new MultiplyAppManager();
