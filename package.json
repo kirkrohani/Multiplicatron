@@ -1,0 +1,13 @@
+{
+  "name": "Multiplicatron 4000",
+  "description": "App that allows multiplication of numbers",
+  "main": "server/FileServer.js",
+  "scripts": {
+    "postinstall": "browserify MultiplyApp.js -o bundle.js",
+    "start": "server/FileServer.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^14.3.0"
+  }
+}
